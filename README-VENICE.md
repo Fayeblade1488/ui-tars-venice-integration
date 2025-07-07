@@ -33,8 +33,8 @@ This fork includes full integration with Venice.ai, providing:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/UI-TARS-desktop.git
-   cd UI-TARS-desktop
+   git clone https://github.com/Fayeblade1488/ui-tars-venice-integration.git
+   cd ui-tars-venice-integration
    ```
 
 2. **Install dependencies:**
@@ -166,7 +166,7 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENS
 
 ### Getting Help
 
-- Check the [Issues](https://github.com/YOUR_USERNAME/UI-TARS-desktop/issues) page
+- Check the [Issues](https://github.com/Fayeblade1488/ui-tars-venice-integration/issues) page
 - Review the `VENICE_AI_INTEGRATION.md` file for detailed integration information
 - Contact the maintainers for support
 
