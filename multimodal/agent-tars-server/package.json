@@ -27,7 +27,7 @@
     "@multimodal/agio": "workspace:*",
     "cors": "^2.8.5",
     "express": "4.21.2",
-    "http-proxy-middleware": "^2.0.6",
+    "http-proxy-middleware": "^3.0.5",
     "socket.io": "^4.7.2",
     "lowdb": "^6.0.1",
     "nanoid": "^5.0.8",
