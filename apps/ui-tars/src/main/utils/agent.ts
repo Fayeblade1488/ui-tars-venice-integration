@@ -9,6 +9,7 @@ import {
   getSystemPromptDoubao_15_15B,
   getSystemPromptDoubao_15_20B,
   getSystemPromptV1_5,
+  getSystemPromptVenice,
 } from '../agent/prompts';
 import {
   closeScreenMarker,
@@ -32,19 +33,38 @@ export const getModelVersion = (
       return UITarsModelVersion.DOUBAO_1_5_15B;
     case VLMProviderV2.doubao_1_5_vl:
       return UITarsModelVersion.DOUBAO_1_5_20B;
+    case VLMProviderV2.venice_ai:
+    case VLMProviderV2.venice_ai_vision:
+      return UITarsModelVersion.V1_5;
     default:
       return UITarsModelVersion.V1_0;
   }
 };
 
-export const getSpByModelVersion = (
+export const getSystemPromptByModelVersion = (
   modelVersion: UITarsModelVersion,
   language: 'zh' | 'en',
-  operatorType: 'browser' | 'computer',
+  operatorType?: Operator,
+  provider?: VLMProviderV2,
 ) => {
+  // Venice.ai specific prompts
+  if (
+    provider === VLMProviderV2.venice_ai ||
+    provider === VLMProviderV2.venice_ai_vision
+  ) {
+    return getSystemPromptVenice(language, 'normal');
+  }
+
+  // Convert Operator enum to string type for Doubao prompt
+  const operatorTypeString: 'browser' | 'computer' =
+    operatorType === Operator.LocalBrowser ||
+    operatorType === Operator.RemoteBrowser
+      ? 'browser'
+      : 'computer';
+
   switch (modelVersion) {
     case UITarsModelVersion.DOUBAO_1_5_20B:
-      return getSystemPromptDoubao_15_20B(language, operatorType);
+      return getSystemPromptDoubao_15_20B(language, operatorTypeString);
     case UITarsModelVersion.DOUBAO_1_5_15B:
       return getSystemPromptDoubao_15_15B(language);
     case UITarsModelVersion.V1_5:
@@ -88,8 +108,8 @@ export const afterAgentRun = (operator: Operator) => {
       break;
     case Operator.LocalComputer:
       hideWidgetWindow();
-      closeScreenMarker();
       hideScreenWaterFlow();
+      closeScreenMarker();
       showMainWindow();
       break;
     case Operator.LocalBrowser:

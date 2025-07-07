@@ -32,4 +32,10 @@ export const MODEL_PROVIDER_CONFIGS: readonly ProviderConfig[] = [
     actual: 'openai',
     baseURL: 'https://api.deepseek.com/v1',
   },
+  {
+    name: 'venice-ai',
+    actual: 'openai',
+    baseURL: 'https://api.venice.ai/api/v1',
+    apiKey: 'YOUR_VENICE_AI_API_KEY',
+  },
 ] as const;

@@ -10,3 +10,25 @@ test-results/
 coverage/
 .turbo/
 scripts/merge-yml/*.yml
+
+# API Keys and secrets
+*.key
+*.pem
+config/secrets.json
+
+# Backup files
+*.backup
+*.bak
+
+# Additional build artifacts
+*.tsbuildinfo
+build/
+release/
+
+# IDE files
+.vscode/settings.json
+.idea/
+
+# Package manager files
+yarn.lock
+package-lock.json

@@ -1,0 +1,47 @@
+{
+  "name": "Venice.ai UI-TARS Preset",
+  "version": "1.0.0",
+  "description": "Optimized configuration for Venice.ai with UI-TARS Desktop",
+  "settings": {
+    "vlmProvider": "Venice.ai for UI-TARS",
+    "vlmBaseUrl": "https://api.venice.ai/api/v1",
+    "vlmApiKey": "YOUR_VENICE_AI_API_KEY",
+    "vlmModelName": "mistral-31-24b",
+    "useResponsesApi": true,
+    "language": "en",
+    "searchEngine": "google",
+    "operatorSettings": {
+      "localComputer": {
+        "enabled": true,
+        "screenshotInterval": 2000,
+        "actionDelay": 1000
+      },
+      "localBrowser": {
+        "enabled": true,
+        "defaultBrowser": "chrome",
+        "headless": false
+      }
+    },
+    "fallbackModels": [
+      {
+        "name": "qwen-2.5-vl",
+        "description": "Venice Vision Model - Best for visual tasks"
+      },
+      {
+        "name": "llama-3.3-70b", 
+        "description": "Venice Default - Balanced performance"
+      },
+      {
+        "name": "venice-uncensored",
+        "description": "Venice Uncensored - For unrestricted tasks"
+      }
+    ]
+  },
+  "recommendations": {
+    "primaryModel": "mistral-31-24b",
+    "visionModel": "qwen-2.5-vl",
+    "reasoningModel": "qwen-2.5-qwq-32b",
+    "fastModel": "llama-3.2-3b",
+    "codeModel": "qwen-2.5-coder-32b"
+  }
+}
